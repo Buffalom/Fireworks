@@ -1,6 +1,12 @@
 class Firework {
     constructor() {
-        this.firework = new Particle(random(width), height, 0, random(-8, -15), 0, 0, 20);
+        this.color = {
+            red: random(100, 255),
+            green: random(100, 255),
+            blue: random(100, 255),
+            alpha: 255
+        }
+        this.firework = new Particle(random(width), height, 0, random(-8, -15), 0, 0, 20, this.color);
         this.exploded = false;
         this.dead = false;
         this.particles = [];
@@ -8,8 +14,8 @@ class Firework {
 
     explode() {
         for (let x = 0; x < 50; x++) {
-            let vel = p5.Vector.random2D().mult(random(0, 3));
-            this.particles.push(new Particle(this.firework.pos.x, this.firework.pos.y,vel.x, vel.y, 0, 0, 5));
+            let vel = p5.Vector.random2D().mult(random(0, 4));
+            this.particles.push(new Particle(this.firework.pos.x, this.firework.pos.y,vel.x, vel.y, 0, 0, 5, this.color));
         }
     }
 

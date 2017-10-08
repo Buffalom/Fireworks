@@ -4,17 +4,18 @@ let gravity;
 function setup() {
     createCanvas(window.innerWidth, window.innerHeight);
     angleMode(DEGREES);
+    background(0);
 
     fireworks = [];
     gravity = createVector(0, 0.1);
 }
 
 function draw() {
-    background(0);
+    background(0, 100);
     stroke(255);
-    strokeWeight(4);
+    strokeWeight(2);
 
-    if (random() < 0.03) {
+    if (random() < 0.05) {
         fireworks.push(new Firework());
     }
 
