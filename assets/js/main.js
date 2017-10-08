@@ -18,9 +18,8 @@ function draw() {
     if (random() < 0.05) {
         fireworks.push(new Firework(random(width), height));
     }
-    if (mouseIsPressed) {
-        fireworks.push(new Firework(mouseX, mouseY));
-    }
+
+    triggerEvents();
 
     for (let x = 0; x < fireworks.length; x++) {
         let firework = fireworks[x];
@@ -29,5 +28,14 @@ function draw() {
         }
         firework.update();
         firework.show();
+    }
+}
+
+function triggerEvents() {
+    if (mouseIsPressed) {
+        fireworks.push(new Firework(mouseX, mouseY));
+    }
+    for (let x = 0; x < touches.length; x++) {
+        fireworks.push(new Firework(touches[x].x, touches[x].y));
     }
 }
