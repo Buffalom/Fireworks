@@ -16,7 +16,10 @@ function draw() {
     strokeWeight(2);
 
     if (random() < 0.05) {
-        fireworks.push(new Firework());
+        fireworks.push(new Firework(random(width), height));
+    }
+    if (mouseIsPressed) {
+        fireworks.push(new Firework(mouseX, mouseY));
     }
 
     for (let x = 0; x < fireworks.length; x++) {
