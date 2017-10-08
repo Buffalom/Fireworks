@@ -6,7 +6,7 @@ class Firework {
             blue: random(100, 255),
             alpha: 255
         }
-        this.firework = new Particle(x, y, 0, random(-8, -15), 0, 0, 20, this.color);
+        this.firework = new Particle(x, y, random(-2, 2), random(-8, -15), 0, 0, 20, this.color);
         this.exploded = false;
         this.dead = false;
         this.particles = [];
